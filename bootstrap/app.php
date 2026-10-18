@@ -14,7 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         // Traffic arrives via Cloudflare Tunnel -> kamal-proxy (loopback only),
         // so trust X-Forwarded-* headers for correct client IPs and https scheme.
-        $middleware->trustProxies(at: '*');
+        $middleware->trustProxies(at: '127.0.0.1');
 
         $middleware->web(append: [
             SetTeamUrlDefaults::class,

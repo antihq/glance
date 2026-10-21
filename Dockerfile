@@ -1,6 +1,6 @@
 # Laravel production image, built by Single Server/Kamal on the VPS.
 # Stages: base -> dependencies (composer) -> assets (vite) -> runtime.
-FROM serversideup/php:8.4-fpm-nginx-alpine AS base
+FROM serversideup/php:8.5-fpm-nginx-alpine AS base
 
 # Single-user tuning: FPM workers spawn on demand and die after 10s idle.
 ENV AUTORUN_ENABLED=1 \

@@ -2,5 +2,5 @@
 # Reclaim disk space after deploys: Kamal never prunes the local machine.
 # - Drops unused images older than 24h (images of running containers are kept)
 # - Caps build cache at 2GB, keeping recent layers so builds stay fast
-docker image prune -af --filter "until=24h" >/dev/null 2>&1 || true
+docker image prune -af --filter "until=24h" --filter "label!=kamal-keep=true" >/dev/null 2>&1 || true
 docker builder prune -af --keep-storage 2GB >/dev/null 2>&1 || true
